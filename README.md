@@ -16,7 +16,7 @@ docker compose --progress=plain build --build-arg CACHE_KEY=d="$(date -Iseconds)
 
 ### Export the build cache to disk
 ```bash
-docker build --progress=plain --output type=local,dest=output --target=read-from-cache --file cache_manipulator.Dockerfile .
+docker build --progress=plain --output type=local,dest=output --target=read-from-cache --file dockerfiles/cache_manipulator.Dockerfile .
 ```
 
 ## Notes
