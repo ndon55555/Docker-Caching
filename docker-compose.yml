@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  write-to-cache:
+    build:
+      context: .
+      dockerfile: cache_manipulator.Dockerfile
+      target: write-to-cache
+
   app:
     build:
       context: .
