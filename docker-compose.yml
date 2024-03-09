@@ -12,3 +12,20 @@ services:
       context: .
       dockerfile: dockerfiles/app.Dockerfile
       target: run
+
+  s3:
+    image: bitnami/minio
+    environment:
+      - MINIO_DEFAULT_BUCKETS=docker-cache
+    ports:
+      - 9000:9000
+      - 9001:9001
+
+  s5cmd:
+    image: peakcom/s5cmd
+    environment:
+      - S3_ENDPOINT_URL=http://s3:9000
+      - AWS_ACCESS_KEY_ID=minio
+      - AWS_SECRET_ACCESS_KEY=miniosecret
+    volumes:
+      - .:/aws
