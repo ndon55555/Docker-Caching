@@ -1,4 +1,4 @@
-FROM debian:stable-slim as base
+FROM busybox as base
 
 FROM base as build
 RUN --mount=type=bind,source=lock_file,target=lock_file \

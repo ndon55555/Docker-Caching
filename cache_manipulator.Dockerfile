@@ -1,4 +1,4 @@
-FROM debian:stable-slim as base
+FROM busybox as base
 
 FROM base as write-to-cache
 ARG CACHE_KEY
