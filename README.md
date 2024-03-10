@@ -8,6 +8,13 @@
     - To minimize time to download and therefore start containers (time to recovery in cloud environments)
     - To minimize storage costs
 
+## High Level Solution
+1. Download the cache locally from external storage
+1. Copy the local cache into cache mount using bind mount
+1. Perform build
+1. Copy the cache mount into local cache using local build output
+1. Upload the local cache into external storage
+
 ## Commands
 ### Populate the build cache
 ```bash
@@ -21,6 +28,7 @@ docker build --progress=plain --output type=local,dest=output --target=read-from
 
 ## Notes
 - Building the app with `--no-cache` causes changes to the cache mount to not be saved
+- Potential external cache storage locations: built-in CI caching mechanisms, S3-compliant services, other Docker images
 
 ## References
 - https://github.com/moby/buildkit/issues/1512#issuecomment-1319736671
