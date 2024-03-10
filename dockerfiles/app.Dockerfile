@@ -1,3 +1,5 @@
+# Sample Dockerfile for an application
+
 FROM busybox as base
 
 FROM base as build
